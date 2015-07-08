@@ -97,12 +97,30 @@ namespace WpfApplication1
 
         private void Run_Click(object sender, RoutedEventArgs e)
         {
-
+            if (((MenuItem)sender).IsChecked == true)
+            {
+                _startTime = DateTimeOffset.Now;
+                _lastTime = _startTime;
+                _simulationTimer.Start();
+            }
+            else
+            {
+                _stopTime = DateTimeOffset.Now;
+                _simulationTimer.Stop();
+            }
         }
 
         void SimulationTimer_Tick(object sender, object e)
         {
-
+            //DateTimeOffset time = DateTimeOffset.Now;
+            //TimeSpan span = time - _lastTime;
+            _lastTime = DateTimeOffset.Now;
+            //timesTicked++;
+            //if (timesTicked > timesToTick)
+            //{
+            //    _stopTime = time;
+            //    _simulationTimer.Stop);
+            //}
         }
         DispatcherTimer _simulationTimer;
         DateTimeOffset _startTime;
@@ -115,9 +133,6 @@ namespace WpfApplication1
             _simulationTimer = new DispatcherTimer();
             _simulationTimer.Tick += SimulationTimer_Tick;
             _simulationTimer.Interval = new TimeSpan(0, 0, 1);
-            _startTime = DateTimeOffset.Now;
-            _lastTime = _startTime;
-            _simulationTimer.Start();
         }
         private void PageLoaded(object sender, RoutedEventArgs e)
         {

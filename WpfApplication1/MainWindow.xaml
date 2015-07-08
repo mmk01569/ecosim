@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApplication1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="350" Width="525" Loaded="PageLoaded">
     <Grid>
         <DockPanel>
             <Menu DockPanel.Dock="Top" IsMainMenu="True" Width="Auto" Height="20" Background="#FFA9D1F4" VerticalAlignment="Top">
@@ -13,7 +13,7 @@
                     <MenuItem Header="New..." Click="FileNew_Click" />
                     <MenuItem Header="Open..." Click="FileOpen_Click" />
                     <Separator />
-                <MenuItem Header="Exit" Click="FileExit_Click" />
+                <MenuItem Header="Exit" IsCheckable="True" Click="FileExit_Click" />
             </MenuItem>
                 <MenuItem Header="_Run" Click="Run_Click"/>
             <MenuItem Header="_Edit">
